@@ -32,13 +32,5 @@ export default function manifest(): MetadataRoute.Manifest {
         purpose: "any",
       },
     ],
-    screenshots: [
-      {
-        src: "/og-image.jpg",
-        sizes: "1200x630",
-        type: "image/jpeg",
-        form_factor: "wide",
-      },
-    ],
   };
 }

@@ -126,11 +126,11 @@ export default function WishlistPage() {
 
         {/* Loading skeleton */}
         {isLoading && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-card border border-border rounded-3xl overflow-hidden animate-pulse">
+              <div key={i} className="bg-card border border-border rounded-2xl sm:rounded-3xl overflow-hidden animate-pulse">
                 <div className="aspect-square bg-muted" />
-                <div className="p-4 space-y-2">
+                <div className="p-3 sm:p-4 space-y-2">
                   <div className="h-4 bg-muted rounded-lg w-3/4" />
                   <div className="h-4 bg-muted rounded-lg w-1/2" />
                   <div className="h-10 bg-muted rounded-xl mt-4" />
@@ -172,7 +172,7 @@ export default function WishlistPage() {
         {!isLoading && wishlist.length > 0 && (
           <AnimatePresence mode="popLayout">
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+              className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6"
             >
               {wishlist.map((product: any) => (
                 <motion.div
@@ -182,7 +182,7 @@ export default function WishlistPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.85, y: -10 }}
                   transition={{ duration: 0.25 }}
-                  className="group bg-card border border-border rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all flex flex-col"
+                  className="group bg-card border border-border rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all flex flex-col"
                 >
                   {/* Product Image */}
                   <Link href={`/products/${product._id}`} className="block relative aspect-square overflow-hidden bg-muted">
@@ -191,51 +191,51 @@ export default function WishlistPage() {
                       alt={product.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 640px) 50vw, 25vw"
                     />
                     {/* Remove button overlay */}
                     <button
                       onClick={(e) => { e.preventDefault(); handleRemove(product._id); }}
                       disabled={removeMutation.isPending}
-                      className="absolute top-3 right-3 p-2 bg-background/80 backdrop-blur-md rounded-full border border-border/50 text-red-500 hover:bg-red-500 hover:text-white transition-all shadow-md opacity-0 group-hover:opacity-100"
+                      className="absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 sm:p-2 bg-background/80 backdrop-blur-md rounded-full border border-border/50 text-red-500 hover:bg-red-500 hover:text-white transition-all shadow-md opacity-100 sm:opacity-0 sm:group-hover:opacity-100"
                       aria-label="Remove from wishlist"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </button>
 
                     {/* Heart badge */}
-                    <div className="absolute top-3 left-3 p-1.5 bg-red-500/90 backdrop-blur-md rounded-full shadow-md">
-                      <Heart className="w-3.5 h-3.5 fill-white text-white" />
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 p-1 sm:p-1.5 bg-red-500/90 backdrop-blur-md rounded-full shadow-md">
+                      <Heart className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-white text-white" />
                     </div>
                   </Link>
 
                   {/* Info */}
-                  <div className="p-4 flex flex-col flex-grow">
+                  <div className="p-3 sm:p-4 flex flex-col flex-grow">
                     <Link href={`/products/${product._id}`}>
-                      <h3 className="font-bold text-foreground line-clamp-2 text-sm leading-snug hover:text-primary transition-colors mb-1">
+                      <h3 className="font-extrabold text-foreground line-clamp-2 text-xs sm:text-sm leading-snug hover:text-primary transition-colors mb-1">
                         {product.name}
                       </h3>
                     </Link>
-                    <p className="text-xs text-muted-foreground mb-3">{product.category}</p>
+                    <p className="text-[10px] sm:text-xs text-muted-foreground mb-3">{product.category}</p>
 
-                    <div className="mt-auto flex items-center justify-between gap-2">
-                      <span className="font-black text-lg text-primary">Rs. {product.price?.toFixed(2)}</span>
-                      <div className="flex items-center gap-2">
+                    <div className="mt-auto flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-2">
+                      <span className="font-black text-sm sm:text-base text-primary truncate">Rs. {product.price}</span>
+                      <div className="flex items-center gap-1 ml-auto">
                         <button
                           onClick={() => handleRemove(product._id)}
                           disabled={removeMutation.isPending}
-                          className="p-2 text-muted-foreground hover:text-red-500 hover:bg-red-500/10 rounded-xl transition-all"
+                          className="p-1.5 sm:p-2 text-muted-foreground hover:text-red-500 hover:bg-red-500/10 rounded-lg sm:rounded-xl transition-all"
                           aria-label="Remove from wishlist"
                         >
                           <Heart className="w-4 h-4 fill-red-500 text-red-500" />
                         </button>
                         <button
                           onClick={() => handleAddToCart(product)}
-                          className="flex items-center gap-1.5 px-3 py-2 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-xl transition-all text-xs font-bold"
+                          className="flex items-center gap-1 px-2.5 py-1.5 sm:px-3 sm:py-2 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg sm:rounded-xl transition-all text-[10px] sm:text-xs font-bold"
                           aria-label={`Add ${product.name} to cart`}
                         >
-                          <ShoppingCart className="w-4 h-4" />
-                          Add to Cart
+                          <ShoppingCart className="w-3.5 h-3.5" />
+                          <span>Cart</span>
                         </button>
                       </div>
                     </div>

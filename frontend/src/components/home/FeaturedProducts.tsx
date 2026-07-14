@@ -66,11 +66,11 @@ export default function FeaturedProducts({ sort = "default", search = "", catego
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         {[...Array(showAll ? 8 : 4)].map((_, i) => (
-          <div key={i} className="bg-card border border-border rounded-2xl overflow-hidden animate-pulse">
+          <div key={i} className="bg-card border border-border rounded-xl sm:rounded-2xl overflow-hidden animate-pulse">
             <div className="aspect-square bg-muted" />
-            <div className="p-5 space-y-3"><div className="h-3 bg-muted rounded w-16" /><div className="h-4 bg-muted rounded w-3/4" /><div className="h-8 bg-muted rounded" /></div>
+            <div className="p-3 sm:p-5 space-y-2"><div className="h-3 bg-muted rounded w-12" /><div className="h-4 bg-muted rounded w-3/4" /><div className="h-8 bg-muted rounded" /></div>
           </div>
         ))}
       </div>
@@ -105,7 +105,7 @@ export default function FeaturedProducts({ sort = "default", search = "", catego
           <p className="text-sm text-muted-foreground mb-6">{displayProducts.length} products found</p>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {displayProducts.map((product: any, index: number) => (
             <div key={product.id || product._id}>
               <ProductCard product={product} />

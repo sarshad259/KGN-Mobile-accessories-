@@ -143,10 +143,12 @@ export default function Navbar() {
             <div className="flex-shrink-0">
               <Link
                 href="/"
-                className="text-2xl font-bold tracking-tighter text-primary"
+                className="text-xl sm:text-2xl font-black tracking-tighter text-primary"
                 aria-label={`${storeName} — Home`}
               >
-                {storeName.split(" ")[0]} <span className="text-foreground">{storeName.split(" ").slice(1).join(" ")}</span>
+                {storeName.split(" ")[0]}
+                <span className="text-foreground hidden sm:inline"> {storeName.split(" ").slice(1).join(" ")}</span>
+                <span className="text-foreground sm:hidden"> Acc</span>
               </Link>
             </div>
 

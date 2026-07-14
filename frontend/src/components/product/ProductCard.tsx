@@ -89,20 +89,20 @@ export default function ProductCard({ product }: { product: any }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
-      className="group bg-card rounded-3xl border border-border shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all overflow-hidden flex flex-col relative"
+      className="group bg-card rounded-2xl sm:rounded-3xl border border-border shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all overflow-hidden flex flex-col relative"
     >
       {/* Wishlist Button */}
       <button
         onClick={handleWishlistClick}
-        className="absolute top-4 right-4 z-10 p-2 rounded-full bg-background/50 backdrop-blur-md border border-border/50 hover:bg-background transition-all"
+        className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full bg-background/65 backdrop-blur-md border border-border/50 hover:bg-background transition-all"
         aria-label={isLiked ? "Remove from wishlist" : "Add to wishlist"}
       >
-        <Heart className={`w-5 h-5 transition-colors ${isLiked ? "fill-red-500 text-red-500" : "text-foreground"}`} />
+        <Heart className={`w-4 h-4 sm:w-5 sm:h-5 transition-colors ${isLiked ? "fill-red-500 text-red-500" : "text-foreground"}`} />
       </button>
 
       {/* Sale Badge */}
       {product.discountPrice && product.discountPrice < product.price && (
-        <div className="absolute top-4 left-4 z-10 bg-red-500 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
+        <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10 bg-red-500 text-white text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-md">
           Sale
         </div>
       )}
@@ -113,46 +113,46 @@ export default function ProductCard({ product }: { product: any }) {
           alt={product.name}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          sizes="(max-width: 640px) 50vw, 25vw"
         />
       </Link>
-      <div className="p-5 flex flex-col flex-grow relative">
-        <div className="flex items-center gap-1 mb-2">
+      <div className="p-3 sm:p-5 flex flex-col flex-grow relative">
+        <div className="flex items-center gap-0.5 mb-1.5">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              className={`w-3.5 h-3.5 ${
+              className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${
                 i < Math.floor(product.rating || 5)
                   ? "fill-amber-400 text-amber-400"
                   : "text-muted-foreground/30"
               }`}
             />
           ))}
-          <span className="text-xs text-muted-foreground ml-1">({product.numReviews || 0})</span>
+          <span className="text-[10px] sm:text-xs text-muted-foreground ml-1">({product.numReviews || 0})</span>
         </div>
 
         <Link href={`/products/${product._id}`} className="group-hover:text-primary transition-colors">
-          <h3 className="font-extrabold text-foreground line-clamp-2 text-lg leading-tight">
+          <h3 className="font-extrabold text-foreground line-clamp-2 text-xs sm:text-base leading-tight">
             {product.name}
           </h3>
         </Link>
-        <div className="mt-auto pt-4 flex items-center justify-between">
-          <div className="flex flex-col">
+        <div className="mt-auto pt-3 sm:pt-4 flex items-center justify-between gap-1">
+          <div className="flex flex-col min-w-0">
             {product.discountPrice && product.discountPrice < product.price ? (
               <>
-                <span className="font-black text-xl text-primary">Rs. {product.discountPrice.toFixed(2)}</span>
-                <span className="text-xs text-muted-foreground line-through decoration-red-500/50 decoration-2">Rs. {product.price.toFixed(2)}</span>
+                <span className="font-black text-sm sm:text-lg text-primary truncate">Rs. {product.discountPrice}</span>
+                <span className="text-[10px] sm:text-xs text-muted-foreground line-through decoration-red-500/50 decoration-1 sm:decoration-2 truncate">Rs. {product.price}</span>
               </>
             ) : (
-              <span className="font-black text-xl text-primary">Rs. {product.price?.toFixed(2)}</span>
+              <span className="font-black text-sm sm:text-lg text-primary truncate">Rs. {product.price}</span>
             )}
           </div>
           <button
             onClick={handleAddToCart}
-            className="flex items-center justify-center bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground p-3 rounded-xl transition-colors shadow-sm"
+            className="flex items-center justify-center bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground p-2 sm:p-3 rounded-lg sm:rounded-xl transition-colors shadow-sm flex-shrink-0"
             aria-label={`Add ${product.name} to cart`}
           >
-            <ShoppingCart className="w-5 h-5" />
+            <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </div>

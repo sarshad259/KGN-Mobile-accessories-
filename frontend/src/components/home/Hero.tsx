@@ -74,7 +74,7 @@ export default function Hero() {
   if (!activeSlides[currentSlide]) return null;
 
   return (
-    <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-background">
+    <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-background">
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
@@ -98,49 +98,49 @@ export default function Hero() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
               <div className="max-w-3xl flex flex-col items-center">
                 <motion.span 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6 border border-primary/20 backdrop-blur-md"
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-1 sm:gap-1.5 py-1 px-3 sm:py-1.5 sm:px-4 rounded-full bg-primary/10 text-primary text-[10px] sm:text-sm font-semibold mb-3 sm:mb-6 border border-primary/20 backdrop-blur-md"
                 >
-                  <Sparkles className="w-3.5 h-3.5" /> KGN Accessories
+                  <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> KGN Accessories
                 </motion.span>
                 
                 <motion.h1 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-6 leading-[1.08] drop-shadow-xl"
+                  transition={{ delay: 0.3 }}
+                  className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground mb-3 sm:mb-6 leading-[1.1] drop-shadow-xl"
                 >
                   {activeSlides[currentSlide].title}
                 </motion.h1>
                 
                 <motion.p 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
-                  className="text-lg md:text-xl text-foreground/95 mb-10 leading-relaxed drop-shadow-sm"
+                  transition={{ delay: 0.4 }}
+                  className="text-xs sm:text-lg md:text-xl text-foreground/95 mb-6 sm:mb-10 max-w-xl leading-relaxed drop-shadow-sm"
                 >
                   {activeSlides[currentSlide].subtitle}
                 </motion.p>
                 
                 <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full"
+                  transition={{ delay: 0.5 }}
+                  className="flex flex-row items-center justify-center gap-2 sm:gap-4 w-full px-2"
                 >
                   <Link
                     href={activeSlides[currentSlide].href}
-                    className="inline-flex justify-center items-center gap-2 px-8 py-4 text-base font-bold text-primary-foreground bg-primary hover:bg-primary/90 rounded-full transition-colors shadow-xl shadow-primary/25 hover:shadow-primary/40"
+                    className="inline-flex justify-center items-center gap-1 sm:gap-2 px-4 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-base font-bold text-primary-foreground bg-primary hover:bg-primary/90 rounded-full transition-colors shadow-lg shadow-primary/25"
                   >
-                    {activeSlides[currentSlide].cta} <ArrowRight className="w-5 h-5" />
+                    {activeSlides[currentSlide].cta.split(" ")[0]} <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
                   </Link>
                   <Link
                     href="/products"
-                    className="inline-flex justify-center items-center px-8 py-4 text-base font-semibold text-foreground bg-background/50 hover:bg-muted/80 border border-border/50 backdrop-blur-md rounded-full transition-colors"
+                    className="inline-flex justify-center items-center px-4 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-base font-semibold text-foreground bg-background/50 hover:bg-muted/80 border border-border/50 backdrop-blur-md rounded-full transition-colors"
                   >
-                    View All Products
+                    View All
                   </Link>
                 </motion.div>
               </div>

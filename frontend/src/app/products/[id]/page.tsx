@@ -489,7 +489,7 @@ export default function ProductDetailPage() {
         {relatedProducts && relatedProducts.length > 0 && (
           <div className="mt-20 border-t border-border pt-12">
             <h2 className="text-2xl font-bold text-foreground mb-8">You Might Also Like</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
               {relatedProducts.map((p: any) => (
                 <ProductCard key={p._id} product={p} />
               ))}

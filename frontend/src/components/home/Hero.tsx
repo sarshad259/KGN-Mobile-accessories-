@@ -78,10 +78,10 @@ export default function Hero() {
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           className="absolute inset-0 w-full h-full"
         >
           {/* Subtle overlay to ensure text readability */}
@@ -119,7 +119,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed drop-shadow-md"
+                  className="text-lg md:text-xl text-foreground/95 mb-10 leading-relaxed drop-shadow-sm"
                 >
                   {activeSlides[currentSlide].subtitle}
                 </motion.p>

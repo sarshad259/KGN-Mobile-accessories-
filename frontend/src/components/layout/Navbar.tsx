@@ -49,6 +49,7 @@ export default function Navbar() {
       return data;
     },
     staleTime: 1000 * 60 * 10,
+    enabled: searchQuery.trim().length > 0, // Only fetch when they start typing
   });
 
   const filteredSuggestions = useMemo(() => {

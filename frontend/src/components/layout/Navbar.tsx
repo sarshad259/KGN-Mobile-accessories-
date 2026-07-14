@@ -23,7 +23,7 @@ const navLinks = [
   { href: "/categories/power-banks", label: "Power Banks" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ storeName = "KGN Accessories" }: { storeName?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -78,16 +78,6 @@ export default function Navbar() {
   const wishlistItems = (queryClient.getQueryData<any[]>(["wishlist"]) || []);
   const wishlistCount = userInfo ? wishlistItems.length : 0;
 
-  const { data: settings } = useQuery({
-    queryKey: ["settings"],
-    queryFn: async () => {
-      const { data } = await axios.get(`${apiUrl}/api/settings`);
-      return data;
-    },
-    staleTime: 1000 * 60 * 5,
-  });
-
-  const storeName = settings?.storeName || "KGN Accessories";
 
   const handleLogout = () => {
     logout();

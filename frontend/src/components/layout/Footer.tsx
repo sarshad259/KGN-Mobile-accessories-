@@ -15,19 +15,7 @@ const Youtube = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M2.5 7.1C2.5 7.1 2 9 2 12s.5 4.9.5 4.9c.3 1 1 1.8 2 2.1C7.1 19.5 12 19.5 12 19.5s4.9 0 7.5-.5c1-.3 1.7-1 2-2.1.5-1.5.5-4.9.5-4.9s-.5-3.4-.5-4.9c-.3-1-1-1.8-2-2.1C16.9 4.5 12 4.5 12 4.5s-4.9 0-7.5.5c-1 .3-1.7 1-2 2.1z"/><path d="m9.7 15.5 6.3-3.5-6.3-3.5v7z"/></svg>
 );
 
-export default function Footer() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-  const { data: settings } = useQuery({
-    queryKey: ["settings"],
-    queryFn: async () => {
-      const { data } = await axios.get(`${apiUrl}/api/settings`);
-      return data;
-    },
-    staleTime: 1000 * 60 * 5, // 5 minutes cache
-  });
-
-  const storeName = settings?.storeName || "KGN Accessories";
-  const contactEmail = settings?.contactEmail || "support@kgnaccessories.com";
+export default function Footer({ storeName = "KGN Accessories", contactEmail = "support@kgnaccessories.com" }: { storeName?: string, contactEmail?: string }) {
 
   return (
     <footer className="bg-card border-t border-border mt-20">

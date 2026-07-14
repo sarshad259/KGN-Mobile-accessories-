@@ -35,20 +35,9 @@ const defaultSlides = [
   },
 ];
 
-export default function Hero() {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-
-  const { data: settings } = useQuery({
-    queryKey: ["settings"],
-    queryFn: async () => {
-      const { data } = await axios.get(`${apiUrl}/api/settings`);
-      return data;
-    },
-    staleTime: 1000 * 60 * 5, // 5 mins
-  });
-
-  const activeSlides = settings?.carouselSlides && settings.carouselSlides.length > 0 
-    ? settings.carouselSlides 
+export default function Hero({ carouselSlides = [] }: { carouselSlides?: any[] }) {
+  const activeSlides = carouselSlides && carouselSlides.length > 0 
+    ? carouselSlides 
     : defaultSlides;
 
   const [currentSlide, setCurrentSlide] = useState(0);

@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+
+let stripe = null;
+if (process.env.STRIPE_SECRET_KEY) {
+  stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+}
 
 // @desc    Create a Stripe Payment Intent
 // @route   POST /api/payment/create-intent
@@ -12,7 +16,7 @@ router.post('/create-intent', async (req, res) => {
     return res.status(400).json({ message: 'Invalid amount' });
   }
 
-  if (!process.env.STRIPE_SECRET_KEY) {
+  if (!process.env.STRIPE_SECRET_KEY || !stripe) {
     return res.status(500).json({ message: 'Stripe not configured. Add STRIPE_SECRET_KEY to .env' });
   }
 

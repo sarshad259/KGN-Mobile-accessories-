@@ -16,19 +16,15 @@ export default async function Home() {
     console.error("Failed to fetch settings on server:", error);
   }
 
-  const storeName = settings?.storeName || "KGN Accessories";
-  const carouselSlides = settings?.carouselSlides || [];
-  const contactEmail = settings?.contactEmail || "support@kgnaccessories.com";
-
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Navbar storeName={storeName} />
+      <Navbar initialSettings={settings} />
       <main id="main-content" className="flex-grow">
-        <Hero carouselSlides={carouselSlides} />
+        <Hero initialSettings={settings} />
         <HomeClientSections />
         <FeaturedProducts />
       </main>
-      <Footer storeName={storeName} contactEmail={contactEmail} />
+      <Footer initialSettings={settings} />
     </div>
   );
 }

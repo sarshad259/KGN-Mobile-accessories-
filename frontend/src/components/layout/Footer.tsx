@@ -24,7 +24,7 @@ export default function Footer({ initialSettings }: { initialSettings?: any }) {
       const { data } = await axios.get(`${apiUrl}/api/settings`);
       return data;
     },
-    initialData: initialSettings,
+    initialData: initialSettings && initialSettings.storeName ? initialSettings : undefined,
     staleTime: 1000 * 60 * 5,
   });
 

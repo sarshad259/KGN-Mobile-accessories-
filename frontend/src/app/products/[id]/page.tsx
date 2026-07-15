@@ -84,7 +84,7 @@ export default function ProductDetailPage() {
   const [selectedColor, setSelectedColor] = useState("");
   const [starFilter, setStarFilter] = useState<number | null>(null);
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // Fetch product from backend
   const { data: product, isLoading } = useQuery({

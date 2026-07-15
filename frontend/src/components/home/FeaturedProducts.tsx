@@ -24,7 +24,7 @@ export default function FeaturedProducts({ sort = "default", search = "", catego
   const { data: fetchedProducts, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
       const { data } = await axios.get(`${apiUrl}/api/products`);
       return data;
     },

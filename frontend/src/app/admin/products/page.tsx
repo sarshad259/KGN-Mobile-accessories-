@@ -48,7 +48,7 @@ export default function AdminProductsPage() {
   const imageInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // ─── Fetch products ─────────────────────────────────────────────────────────
   const { data: products, isLoading, refetch } = useQuery<ProductType[]>({

@@ -39,7 +39,7 @@ export default function Navbar({ initialSettings }: { initialSettings?: any }) {
   const profileRef = useRef<HTMLDivElement>(null);
   const queryClient = useQueryClient();
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // Fetch products for autocomplete search
   const { data: searchProducts } = useQuery<any[]>({

@@ -26,7 +26,7 @@ export default function LoginPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
       const { data } = await axios.post(`${apiUrl}/api/users/login`, { email, password });
       setCredentials(data); // stores token + isAdmin
       toast.success(`Welcome back, ${data.name}! 👋`);

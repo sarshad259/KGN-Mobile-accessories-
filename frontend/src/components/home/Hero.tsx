@@ -36,7 +36,7 @@ const defaultSlides = [
 ];
 
 export default function Hero({ initialSettings }: { initialSettings?: any }) {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   const { data: settings } = useQuery({
     queryKey: ["settings"],

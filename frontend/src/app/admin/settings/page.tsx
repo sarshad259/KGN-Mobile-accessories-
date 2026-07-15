@@ -19,7 +19,7 @@ interface CarouselSlide {
 export default function AdminSettingsPage() {
   const { userInfo } = useAuthStore();
   const queryClient = useQueryClient();
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   const [storeName, setStoreName] = useState("KGN Mobile Accessories");
   const [contactEmail, setContactEmail] = useState("support@kgn.com");

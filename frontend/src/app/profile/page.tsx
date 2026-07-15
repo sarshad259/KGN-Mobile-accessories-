@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 export default function ProfilePage() {
   const { userInfo, logout } = useAuthStore();
   const router = useRouter();
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // Auth guard
   useEffect(() => {

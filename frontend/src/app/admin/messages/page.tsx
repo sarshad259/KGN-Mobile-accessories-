@@ -22,7 +22,7 @@ interface MessageType {
 export default function AdminMessagesPage() {
   const { userInfo } = useAuthStore();
   const queryClient = useQueryClient();
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   const [activeTab, setActiveTab] = useState<"all" | "unread" | "replied">("all");
   const [selectedMessage, setSelectedMessage] = useState<MessageType | null>(null);

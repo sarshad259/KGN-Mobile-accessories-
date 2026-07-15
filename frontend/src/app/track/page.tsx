@@ -32,7 +32,7 @@ export default function OrderTrackingPage() {
   const [orderIdInput, setOrderIdInput] = useState("");
   const [searchId, setSearchId] = useState("");
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   const { data: order, isLoading, isError, error } = useQuery<OrderDetails>({
     queryKey: ["track-order", searchId],

@@ -39,7 +39,7 @@ export default function CheckoutPage() {
   });
 
   const { cartItems, clearCart } = useCartStore();
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // Fetch settings
   const { data: settings, isLoading: loadingSettings } = useQuery({

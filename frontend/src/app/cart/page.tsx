@@ -29,7 +29,7 @@ export default function CartPage() {
     }
   };
 
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // Fetch settings dynamically
   const { data: settings } = useQuery({

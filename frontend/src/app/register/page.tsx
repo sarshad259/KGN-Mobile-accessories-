@@ -27,7 +27,7 @@ export default function RegisterPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
       const { data } = await axios.post(`${apiUrl}/api/users`, { name, email, password });
       setCredentials(data);
       toast.success(`Account created! Welcome, ${data.name} 🎉`);

@@ -57,7 +57,7 @@ const statusColors: Record<string, string> = {
 
 export default function AdminDashboard() {
   const { userInfo } = useAuthStore();
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || "https://kgn-mobile-accessories.onrender.com";
 
   // Fetch all orders
   const { data: orders, isLoading: loadingOrders } = useQuery<OrderType[]>({
